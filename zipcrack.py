@@ -1,6 +1,16 @@
+'''
+	+-----------------------------------+
+	|  author  : church		    |
+	|  Blog    : evilchurch.cc	    |
+	|  Github  : github.com/evilchurch  |
+	+-----------------------------------+
+'''
+
+
+
 #!/usr/bin/env python
 
-import zipfile, time
+import zipfile
 import random, string
 from threading import Thread
 
