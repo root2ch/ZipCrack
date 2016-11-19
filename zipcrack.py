@@ -11,8 +11,7 @@
 #!/usr/bin/env python
 
 import zipfile
-import random, string
-from threading import Thread
+import itertools, string
 
 def extract(zfile, passwd):
 	try:
@@ -28,18 +27,17 @@ def createpassfile(min_len, max_len):
 	print '[*] Creating passFile...'
 
 	for x in xrange(int(min_len), int(max_len)+ 1):
-		s = ''.join([random.choice(chars) for i in range(x)])
-		passfile.write("%s\n" % s)
+		for i in itertools.product(chars, repeat=x):
+			s = ''.join(i)
+			passfile.write("%s\n" % s)
 	passfile.close()
 
 def crack(zfile, passfile):
 	zfile = zipfile.ZipFile(zfile)
-	with open(passfile, 'r') as p:
+	with open(passfile) as p:
 		for line in p.readlines():
 			passwd = line.strip('\n')
-			t = Thread(target=extract, args=(zfile, passwd))
-			t.start()
-			if t:
+			if extract(zfile, passwd):
 				break
 
 def main():
