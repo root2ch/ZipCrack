@@ -3,9 +3,9 @@
 
 >加载现有字典
 
-![](https://github.com/evilchurch/ZipCrack/blob/master/screenshot/1.png)
+![](screenshot/1.png)
 
 >自定义生成字典
 
-![](https://github.com/evilchurch/ZipCrack/blob/master/screenshot/2.png)
+![](screenshot/2.png)
 
